@@ -18,7 +18,7 @@
       display: block;
     }
 
-    /* Estilos adicionales para dispositivos móviles */
+    /* Estilos específicos para móviles */
     @media (max-width: 768px) {
       model-viewer {
         --poster-color: transparent;
@@ -26,7 +26,7 @@
       }
     }
 
-    /* Aviso para vista vertical */
+    /* Mensaje para orientación vertical */
     #rotate-warning {
       display: none;
       position: fixed;
@@ -66,18 +66,17 @@
     camera-controls
     ar
     ar-modes="scene-viewer quick-look webxr"
-    background-color="#ffffff"
     exposure="1"
-    camera-orbit="auto auto auto"
+    camera-orbit="0deg 75deg 2.5m"
     camera-target="0m 0m 0m"
     poster="poster.png"
     reveal="interaction">
   </model-viewer>
 
   <script>
-    const isMobile = window.innerWidth <= 768;
-    if (!isMobile) {
-      document.getElementById("visor3d").setAttribute("auto-rotate", "");
+    const viewer = document.getElementById("visor3d");
+    if (window.innerWidth > 768) {
+      viewer.setAttribute("auto-rotate", "");
     }
   </script>
 
