@@ -1,57 +1,18 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Visor 3D</title>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <style>
-    body {
-      margin: 0;
-      background-color: #ffffff;
-      overflow: hidden;
-    }
+<model-viewer
+  id="visor3d"
+  src="Wilbur_robinson_wii.glb"
+  alt="Modelo 3D"
+  loading="lazy"
+  camera-controls
+  ar
+  ar-modes="scene-viewer quick-look webxr"
+  exposure="1"
+  camera-orbit="0deg 75deg 2.5m"
+  camera-target="0m 0m 0m"
+  poster="poster.png"
+  reveal="interaction">
+</model-viewer>
 
-    model-viewer {
-      width: 100vw;
-      height: 100vh;
-      background-color: #ffffff;
-      display: block;
-    }
-
-    @media (max-width: 768px) {
-      model-viewer {
-        --poster-color: transparent;
-        --progress-mask: none;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <model-viewer
-    id="visor3d"
-    src="Wilbur_robinson_wii.glb"
-    alt="Modelo 3D"
-    loading="lazy"
-    camera-controls
-    ar
-    ar-modes="scene-viewer quick-look webxr"
-    exposure="1"
-    camera-orbit="0deg 75deg 2.5m"
-    camera-target="0m 0m 0m"
-    poster="poster.png"
-    reveal="interaction">
-  </model-viewer>
-
-  <script>
-    const viewer = document.getElementById("visor3d");
-    if (window.innerWidth > 768) {
-      viewer.setAttribute("auto-rotate", "");
-    }
-  </script>
-
-</body>
-</html>
 
 
 
