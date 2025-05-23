@@ -1,19 +1,29 @@
-<model-viewer
-  id="visor3d"
-  src="Wilbur_robinson_wii.glb"
-  alt="Modelo 3D"
-  loading="lazy"
-  camera-controls
-  ar
-  ar-modes="scene-viewer quick-look webxr"
-  exposure="1"
-  camera-orbit="0deg 75deg 2.5m"
-  camera-target="0m 0m 0m"
-  poster="poster.png"
-  reveal="interaction">
-</model-viewer>
-
-
-
-
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Visor 3D</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+      }
+      model-viewer {
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <model-viewer
+      src="Wilbur_robinson_wii.glb"
+      alt="Modelo 3D"
+      camera-controls
+      auto-rotate
+      ar
+      poster="poster.png"
+      reveal="interaction">
+    </model-viewer>
+  </body>
+</html>
 
