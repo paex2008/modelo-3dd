@@ -2,30 +2,55 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Visor 3D</title>
+  <title>Visor 3D Optimizado</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     body {
       margin: 0;
-      background-color: white;
+      background-color: #ffffff;
     }
     model-viewer {
       width: 100vw;
       height: 100vh;
-      background-color: white;
+      background-color: #ffffff;
+    }
+
+    /* Ajustes visuales para pantallas pequeñas */
+    @media (max-width: 768px) {
+      model-viewer {
+        --poster-color: transparent;
+        --progress-mask: none;
+      }
     }
   </style>
 </head>
 <body>
-  <model-viewer 
-    src="Wilbur_robinson_wii.glb" 
-    alt="Modelo 3D" 
-    auto-rotate 
-    camera-controls 
-    ar 
+
+  <model-viewer
+    id="visor3d"
+    src="Wilbur_robinson_wii.glb"
+    alt="Modelo 3D"
+    loading="lazy"
+    camera-controls
+    ar
     ar-modes="scene-viewer quick-look webxr"
-    background-color="#ffffff">
+    background-color="#ffffff"
+    exposure="1"
+    min-camera-orbit="auto auto 2m"
+    max-camera-orbit="auto auto 5m"
+    camera-orbit="0deg 75deg 3m"
+    poster="poster.png"  <!-- (opcional: usa una imagen previa del modelo) -->
+    reveal="interaction">
   </model-viewer>
+
+  <script>
+    // Desactiva auto-rotate en móviles
+    const isMobile = window.innerWidth <= 768;
+    if (!isMobile) {
+      document.getElementById("visor3d").setAttribute("auto-rotate", "");
+    }
+  </script>
+
 </body>
 </html>
 
