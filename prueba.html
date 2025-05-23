@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Visor 3D Horizontal</title>
+  <title>Visor 3D Unificado</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     body {
@@ -10,11 +10,20 @@
       background-color: #ffffff;
       overflow: hidden;
     }
+
     model-viewer {
       width: 100vw;
       height: 100vh;
       background-color: #ffffff;
       display: block;
+    }
+
+    /* Estilos adicionales para dispositivos móviles */
+    @media (max-width: 768px) {
+      model-viewer {
+        --poster-color: transparent;
+        --progress-mask: none;
+      }
     }
 
     /* Aviso para vista vertical */
@@ -74,5 +83,6 @@
 
 </body>
 </html>
+
 
 
